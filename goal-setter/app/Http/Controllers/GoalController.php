@@ -39,4 +39,11 @@ public function update(Request $request, Goal $goal) {
     $goal->update($request->all());
     return redirect()->route('goals.index');
 }
+
+public function destroy(Goal $goal)
+{
+    $goal->delete();
+    return redirect()->route('goals.index')->with('success', 'Goal deleted successfully.');
+}
+
 }
