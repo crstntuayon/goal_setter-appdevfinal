@@ -34,8 +34,21 @@
                     Delete Goal
                 </button>
             </form>
-           
+            <br>
+            <span class="text-green-600">Goal Completed!</span>
+        @else
+            <form action="{{ route('goals.destroy', $goal) }}" method="POST" class="inline-block ml-2">
+                @csrf
+                @method('DELETE')
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this goal?')"
+                    class="bg-red-600 text-white px-3 py-1 rounded">
+                    Delete Goal
+                </button>
+            </form>
+            <br>
+            <span class="text-red-600">Goal In Progress</span>  
         @endif
         
+    
 @endforeach
 @endsection
