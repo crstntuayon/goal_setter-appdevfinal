@@ -28,22 +28,35 @@ public function store(Request $request) {
     return redirect()->route('goals.index');
 }
 
-public function edit(Goal $goal) {
+
+
+
+public function destroy($id)
+{
+    $goal = Goal::findOrFail($id);
+
+    if ($goal->current_value < $goal->target_value) {
+        return redirect()->back()->with('error', 'You can only delete a goal once it reaches its target.');
+    }
+
+    $goal->delete();
+
+    return redirect()->route('goals.index')->with('success', 'Goal deleted successfully.');
+}
+
+
+public function edit($id)
+{
+    $goal = Goal::findOrFail($id);
     return view('goals.edit', compact('goal'));
 }
 
-public function update(Request $request, Goal $goal) {
-    $request->validate([
-        'progress' => 'required|integer|min:0|max:' . $goal->target,
-    ]);
-    $goal->update($request->all());
-    return redirect()->route('goals.index');
-}
-
-public function destroy(Goal $goal)
+public function update(Request $request, $id)
 {
-    $goal->delete();
-    return redirect()->route('goals.index')->with('success', 'Goal deleted successfully.');
+    $goal = Goal::findOrFail($id);
+    $goal->update($request->all());
+
+    return redirect()->route('goals.index')->with('success', 'Goal updated successfully.');
 }
 
 }
