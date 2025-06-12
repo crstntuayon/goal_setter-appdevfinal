@@ -6,7 +6,8 @@
 
 
 @foreach ($goals as $goal)
-    <div class="mb-6">
+    <div class="row mb-4 p-4 bg-white shadow rounded">
+        
         <h2 class="text-xl font-semibold">{{ $goal->title }}</h2>
         <p>{{ $goal->description }}</p>
         <div class="bg-gray-200 h-6 rounded overflow-hidden mt-2">
@@ -20,7 +21,9 @@
             <input type="number" name="progress" value="{{ $goal->progress }}" min="0" max="{{ $goal->target }}" class="border p-1 w-24">
             <button type="submit" class="bg-yellow-500 text-white px-3 py-1 rounded">Update Progress</button>
         </form>
-        
+        <div class="mt-2">
+            <strong>Target:</strong> {{ $goal->target }}<br>
+            <strong>Progress:</strong> {{ $goal->progress }}
     </div>
 
      <a class="bg-green-600 text-white px-3 py-1 rounded" href="{{ route('goals.edit', $goal->id) }}">Edit Goal</a>
@@ -51,6 +54,6 @@
         <br>
         <span class="text-gray-500 text-sm">Created at: {{ $goal->created_at->format('Y-m-d H:i') }}</span>
         <span class="text-gray-500 text-sm">Updated at: {{ $goal->updated_at->format('Y-m-d H:i') }}</span>
-    
+    </div>
 @endforeach
 @endsection
