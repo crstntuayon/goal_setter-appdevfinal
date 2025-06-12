@@ -48,7 +48,9 @@
             <br>
             <span class="text-red-600">Goal In Progress</span>  
         @endif
-        
+        <br>
+        <span class="text-gray-500 text-sm">Created at: {{ $goal->created_at->format('Y-m-d H:i') }}</span>
+        <span class="text-gray-500 text-sm">Updated at: {{ $goal->updated_at->format('Y-m-d H:i') }}</span>
     
 @endforeach
 @endsection
