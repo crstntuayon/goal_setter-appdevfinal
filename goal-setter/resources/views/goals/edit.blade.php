@@ -31,6 +31,10 @@
             <button type="submit" class="btn btn-success">
                 <i class="fas fa-save"></i> Update
             </button>
+            <br>
+            <a href="{{ route('goals.index') }}" class="btn btn-secondary mb-3">
+    <i class="fas fa-arrow-left"></i> Back</a>
+          
         </form>
     </div>
 @endsection

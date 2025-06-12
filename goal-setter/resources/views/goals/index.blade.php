@@ -21,11 +21,13 @@
             <input type="number" name="progress" value="{{ $goal->progress }}" min="0" max="{{ $goal->target }}" class="border p-1 w-24">
             <button type="submit" class="bg-yellow-500 text-white px-3 py-1 rounded">Update Progress</button>
         </form>
+        
         <div class="mt-2">
-            <strong>Target:</strong> {{ $goal->target }}<br>
+            <strong>Target:</strong> {{ $goal->target }}
+            <br>
             <strong>Progress:</strong> {{ $goal->progress }}
     </div>
-
+    <br>
      <a class="bg-green-600 text-white px-3 py-1 rounded" href="{{ route('goals.edit', $goal->id) }}">Edit Goal</a>
         
         @if ($goal->progress >= $goal->target)
@@ -37,17 +39,10 @@
                     Delete Goal
                 </button>
             </form>
-            <br>
-            <span class="text-green-600">Goal Completed!</span>
-        @else
-            <form action="{{ route('goals.destroy', $goal) }}" method="POST" class="inline-block ml-2">
-                @csrf
-                @method('DELETE')
-                <button type="submit" onclick="return confirm('Are you sure you want to delete this goal?')"
-                    class="bg-red-600 text-white px-3 py-1 rounded">
-                    Delete Goal
-                </button>
-            </form>
+            
+
+
+
             <br>
             <span class="text-red-600">Goal In Progress</span>  
         @endif
