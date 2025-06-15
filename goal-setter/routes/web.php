@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoalController;
 
 Route::get('/', function () {
-    return view('goals/create');
+    return view('/goals/create');
 });
 
 

@@ -53,10 +53,6 @@
         @yield('content')
     </div>
 
-     @include('partials.header') {{-- Include header --}}
-    
-    <main class="p-4">
-        @yield('content')
-    </main>
+   
 </body>
 </html>
