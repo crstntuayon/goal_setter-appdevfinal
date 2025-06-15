@@ -25,13 +25,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Goal Setting Application">
     <meta name="keywords" content="goals, progress, tracking, achievement">
-    <meta name="author" content="Your Name">
+    <meta name="author" content="Crestian Tuayon">
     <meta name="theme-color" content="#007bff">         
 
 
 
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="your-google-site-verification-code"> 
+
+
+    
     <style>
         body {
             background-color: #f8f9fa;
@@ -42,10 +45,18 @@
         </style>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
+    
 </head>
 <body>
     <div class="container mt-5">
         @yield('content')
     </div>
+
+     @include('partials.header') {{-- Include header --}}
+    
+    <main class="p-4">
+        @yield('content')
+    </main>
 </body>
 </html>
