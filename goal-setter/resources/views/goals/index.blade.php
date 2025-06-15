@@ -4,6 +4,39 @@
 <h1 class="text-2xl font-bold mb-4">My Goals</h1>
 <a href="{{ route('goals.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">Add Goal</a>
 
+<form id="searchForm" action="{{ route('goals.index') }}" method="GET" class="mb-4 flex gap-2">
+    <input 
+        type="text" 
+        name="search" 
+        id="searchInput"
+        placeholder="Search your goals..." 
+        value="{{ request('search') }}" 
+        class="border rounded p-2 w-full"
+    >
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Search</button>
+</form>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const searchForm = document.getElementById('searchForm');
+
+    searchInput.addEventListener('input', function () {
+        if (this.value === '') {
+            searchForm.submit(); // auto-submit when input is cleared
+        }
+    });
+</script>
+
+@if($goals->count())
+    
+@else
+    <p>No goals found.</p>
+@endif
+@if(session('success'))
+    <div class="bg-green-500 text-white p-2 rounded mb-4">
+        {{ session('success') }}
+    </div>
+@endif
 
 @foreach ($goals as $goal)
     <div class="row mb-4 p-4 bg-white shadow rounded">

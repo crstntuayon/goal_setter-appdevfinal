@@ -10,11 +10,7 @@ class GoalController extends Controller
     /**
      * Display a listing of the resource.
      */
-  public function index() {
-    $goals = Goal::all();
-    return view('goals.index', compact('goals'));
-}
-
+ 
 public function create() {
     return view('goals.create');
 }
@@ -58,5 +54,17 @@ public function update(Request $request, $id)
 
     return redirect()->route('goals.index')->with('success', 'Goal updated successfully.');
 }
+
+public function index(Request $request)
+{
+    $search = $request->input('search');
+
+    $goals = Goal::when($search, function ($query, $search) {
+        return $query->where('title', 'like', "%{$search}%");
+    })->latest()->get();
+
+    return view('goals.index', compact('goals'));
+}
+
 
 }
