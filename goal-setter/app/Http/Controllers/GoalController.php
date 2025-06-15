@@ -55,6 +55,7 @@ public function update(Request $request, $id)
     return redirect()->route('goals.index')->with('success', 'Goal updated successfully.');
 }
 
+
 public function index(Request $request)
 {
     $search = $request->input('search');

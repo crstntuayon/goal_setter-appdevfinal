@@ -27,16 +27,33 @@
     });
 </script>
 
+@if(session('success'))
+    <div 
+        id="successMessage" 
+        class="bg-green-200 text-green-800 px-4 py-2 rounded mb-4"
+    >
+        {{ session('success') }}
+    </div>
+
+    <script>
+        setTimeout(function() {
+            const message = document.getElementById('successMessage');
+            if (message) {
+                message.style.transition = 'opacity 0.5s ease';
+                message.style.opacity = '0';
+                setTimeout(() => message.remove(), 500);
+            }
+        }, 3000); // vanish after 3 seconds
+    </script>
+@endif
+
+
 @if($goals->count())
     
 @else
     <p>No goals found.</p>
 @endif
-@if(session('success'))
-    <div class="bg-green-500 text-white p-2 rounded mb-4">
-        {{ session('success') }}
-    </div>
-@endif
+
 
 @foreach ($goals as $goal)
     <div class="row mb-4 p-4 bg-white shadow rounded">

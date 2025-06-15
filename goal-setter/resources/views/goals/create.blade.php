@@ -11,7 +11,7 @@
 
     <div class="d-flex gap-2">
     <button type="submit" class="bg-blue-500 text-white px-3 py-2 rounded">Save Goal</button>
-    <a href="{{ route('goals.index') }}" class="bg-yellow-500 text-white px-3 py-2 rounded">See Goals</a>
+    <a href="{{ route('goals.index') }}" class="bg-yellow-500 text-white px-3 py-2 rounded">Back to Goals</a>
 </div>
     <div class="text-red-500">
         @if ($errors->any())

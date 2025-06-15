@@ -21,3 +21,4 @@ Route::put('/goals/{goal}', [GoalController::class, 'update'])->name('goals.upda
 Route::post('/goals', [GoalController::class, 'store'])->name('goals.store');
 Route::get('/goals/create', [GoalController::class, 'create'])->name('goals.create');
 
+Route::get('/goals', [GoalController::class, 'index'])->name('goals.index');
