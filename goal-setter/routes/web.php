@@ -2,10 +2,24 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoalController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Middleware\AuthCheck;
 
 Route::get('/', function () {
-    return view('/goals/create');
+    return view('login');
 });
+
+
+// Auth
+//Login
+Route::get('/login', [AuthController::class, 'index'])->name('auth.index');
+Route::post('/user-login', [AuthController::class, 'login'])->name('auth.login');
+
+// Register
+Route::get('/register', [AuthController::class, 'indexRegister'])->name('auth.register');
+Route::post('/user-register', [AuthController::class, 'userRegister'])->name('auth.userRegister');
+
+Route::middleware([AuthCheck::class])->group(function () {
 
 
 
@@ -22,3 +36,9 @@ Route::post('/goals', [GoalController::class, 'store'])->name('goals.store');
 Route::get('/goals/create', [GoalController::class, 'create'])->name('goals.create');
 
 Route::get('/goals', [GoalController::class, 'index'])->name('goals.index');
+
+
+  // Logout
+  Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+});

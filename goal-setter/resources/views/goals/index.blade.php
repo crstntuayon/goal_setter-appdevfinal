@@ -1,8 +1,12 @@
 @extends('layout')
 
 @section('content')
-<h1 class="text-2xl font-bold mb-4">My Goals</h1>
+<h1 class="text-2xl font-bold mb-4">My Goals</h1> 
 <a href="{{ route('goals.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">Add Goal</a>
+
+
+<a href="{{ route('auth.logout') }}" class="bg-red-600 text-white px-3 py-1 rounded" style="float: right;">Logout</a>
+
 
 <form id="searchForm" action="{{ route('goals.index') }}" method="GET" class="mb-4 flex gap-2">
     <input 
