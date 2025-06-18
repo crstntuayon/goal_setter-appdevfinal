@@ -13,6 +13,7 @@
                     Meet Our Team
                 </h3>
                 
+                
                 <div class="profile-card">
                     <div class="profile-header">
                         <img src="https://scontent.fceb1-3.fna.fbcdn.net/v/t39.30808-6/505629446_1022580173355984_1710824843001071140_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEU_uYLRAYzVn-Y-aFJoeWlDA1ro3d-oTEMDWujd36hMSe3RM9IL7Tjel4FuRyfX18J01uCRZ2j9LHlaBgNnUsB&_nc_ohc=W1E7gJ7-D-AQ7kNvwH4P_AS&_nc_oc=AdngWjpuDcngk9gSOo4YYeVQNNo5SQ3KI3uJjVDi0QVI8kEhKVebSx0XscjtoEuoQ1g&_nc_zt=23&_nc_ht=scontent.fceb1-3.fna&_nc_gid=TCNTwwaPBBieBHxl-8W3Vw&oh=00_AfO06RoQvrgHCF3p9NXAQtUU-JZ33cYGs7kJtvbaGLZJUg&oe=685849D7" alt="Cres Tuayon" class="profile-avatar">
@@ -29,7 +30,7 @@
                 
                 <div class="profile-card">
                     <div class="profile-header">
-                        <img src=" " alt="Berna Rose Alingasa" class="profile-avatar">
+                        <img src="https://scontent.fceb1-1.fna.fbcdn.net/v/t39.30808-6/474849862_1281301063082766_2232710218451962859_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGMOl_P-S2Jkq5ErDWIxgHcthXa2_Fv65-2Fdrb8W_rn0XntHlya7BQbzVDTq9VNGNisAh-8ZubG616H-m_m5nO&_nc_ohc=dJONOWsicEwQ7kNvwGkZnXk&_nc_oc=Adl0IKQWzt_2V4ICjuAU-GpqA35VcLl9qABWWeM8SOnQD0HZ94D2uAoGGi3LQExIDsE&_nc_zt=23&_nc_ht=scontent.fceb1-1.fna&_nc_gid=1gltmCAvAo4ny_322y7Jdg&oh=00_AfNXpe-XS5auplJ2p-V7-dlXSAYvOA1ADafbztHZpVKTrA&oe=6858838F" alt="Berna Rose Alingasa" class="profile-avatar">
                         <div class="profile-info">
                             <h5>Berna Rose Alingasa</h5>
                             <div class="role">UI/UX Designer</div>
@@ -290,7 +291,7 @@
 
         /* Enhanced Card Styling */
         .card {
-            background: rgba(253, 246, 246, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: var(--border-radius-lg);
@@ -316,7 +317,7 @@
         }
 
         .card-header {
-            background: rgba(253, 246, 246, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding: 24px 30px;
             position: relative;
