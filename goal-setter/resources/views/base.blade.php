@@ -69,12 +69,7 @@
     
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --warning-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            --danger-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-            --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+           
             
             --shadow-light: 0 2px 15px rgba(0, 0, 0, 0.08);
             --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
@@ -295,7 +290,7 @@
 
         /* Enhanced Card Styling */
         .card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(235, 233, 233, 0.95);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: var(--border-radius-lg);
