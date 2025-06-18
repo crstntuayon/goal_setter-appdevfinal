@@ -290,7 +290,7 @@
 
         /* Enhanced Card Styling */
         .card {
-            background: rgba(235, 233, 233, 0.95);
+            background: rgba(253, 246, 246, 0.8);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: var(--border-radius-lg);
@@ -316,7 +316,7 @@
         }
 
         .card-header {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(253, 246, 246, 0.8);
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding: 24px 30px;
             position: relative;
@@ -371,11 +371,12 @@
             border: none;
             position: relative;
             overflow: hidden;
+            
         }
 
         .btn-primary {
             background: var(--primary-gradient);
-            color: white;
+            color: #5a6fd8;
             box-shadow: var(--shadow-light);
         }
 
