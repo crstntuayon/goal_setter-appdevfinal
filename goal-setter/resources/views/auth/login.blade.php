@@ -44,9 +44,6 @@
         }, 3000); // vanish after 3 seconds
     </script>
 @endif
-
-                    
-
                     <div class="card-body">
                         <form method="post" action="{{ route('auth.login')}}">
                             @csrf
