@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoalController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Middleware\AuthCheck;
+use App\Http\Controllers\NoteController;
 
 Route::get('/', function () {
     return view('login');
@@ -37,6 +38,10 @@ Route::get('/goals/create', [GoalController::class, 'create'])->name('goals.crea
 
 Route::get('/goals', [GoalController::class, 'index'])->name('goals.index');
 
+
+Route::resource('goals.notes', NoteController::class);
+
+Route::post('/goals/{goal}/notes', [NoteController::class, 'store'])->name('goals.notes.store');
 
   // Logout
   Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');

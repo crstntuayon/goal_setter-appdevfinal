@@ -494,7 +494,7 @@
         <div class="tab-pane fade show active" id="login" role="tabpanel">
           <div class="card shadow-sm">
             <div class="card-body">
-              <h4 class="card-title mb-4">Login</h4>
+              <h2 class="text-2xl font-bold mb-4">Login</h2>
                 @if(session('success'))
     <div id="logout-alert" class="alert alert-success" style="transition: opacity 0.5s ease;">
         {{ session('success') }}
@@ -558,7 +558,7 @@
         <div class="tab-pane fade" id="register" role="tabpanel">
           <div class="card shadow-sm">
             <div class="card-body">
-              <h4 class="card-title mb-4">Register</h4>
+              <h2 class="text-2xl font-bold mb-4">Register</h2>
 
                 @if(session('success'))
     <div id="register-alert" class="alert alert-success" style="transition: opacity 0.5s ease;">
