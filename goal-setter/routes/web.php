@@ -42,6 +42,10 @@ Route::get('/goals', [GoalController::class, 'index'])->name('goals.index');
 Route::resource('goals.notes', NoteController::class);
 
 Route::post('/goals/{goal}/notes', [NoteController::class, 'store'])->name('goals.notes.store');
+Route::resource('goals.notes', NoteController::class)->only(['store', 'destroy']);
+
+Route::delete('/goals/{goal}/notes/{note}', [NoteController::class, 'destroy'])->name('goals.notes.destroy');
+
 
   // Logout
   Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');

@@ -543,7 +543,7 @@
         <h1>🎯 My Goals</h1>
         <div style="display: flex; gap: 15px; align-items: center;">
             <a href="{{ route('goals.create') }}" class="btn btn-primary">Add Goal</a>
-            <a href="{{ route('auth.logout') }}" class="btn btn-danger">Logout</a>
+            <a href="{{ route('auth.logout') }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
         </div>
     </div>
 
@@ -632,11 +632,13 @@
                     </div>
                     
                     <div id="notes-list-{{ $goal->id }}" class="notes-list">
+                        
                         @if($goal->notes && $goal->notes->count() > 0)
                             @foreach($goal->notes as $note)
                                 <div class="note-item">
                                     <div class="note-text">{{ $note->content }}</div>
                                     <div class="note-date">{{ $note->created_at->format('M d, Y H:i') }}</div>
+                                    </button>
                                 </div>
                             @endforeach
                         @else
@@ -644,6 +646,7 @@
                                 No notes yet. Add your first note above! 📝
                             </div>
                         @endif
+                        
                     </div>
 
                     <div id="add-note-form-{{ $goal->id }}" class="add-note-form">

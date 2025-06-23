@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+
 
 class AuthController extends Controller
 {
@@ -18,23 +20,7 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
-        $loginAuth = User::where('email', '=', $request->email)
-            ->first();
-
-        if ($loginAuth) {
-            Session::put('loginId', $loginAuth->id);
-            return redirect()->route('goals.index')->with('success', 'Login successfully');
-        } else {
-            return back()->with('error', 'Invalid email or password');
-        }
-    }
+   
 
     // Register
 
@@ -75,5 +61,19 @@ class AuthController extends Controller
         }
         
     }
+
+    public function login(Request $request)
+{
+    $credentials = $request->only('email', 'password');
+
+    if (Auth::attempt($credentials)) {
+        // Password is correct
+        return redirect()->intended('dashboard');
+    }
+
+    // Password is wrong
+    return back()->with('error', 'Invalid login credentials');
+}
+
     
 }
