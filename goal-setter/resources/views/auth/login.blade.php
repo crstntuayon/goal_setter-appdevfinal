@@ -495,36 +495,23 @@
           <div class="card shadow-sm">
             <div class="card-body">
               <h2 class="text-2xl font-bold mb-4">Login</h2>
-                @if(session('success'))
-    <div id="logout-alert" class="alert alert-success" style="transition: opacity 0.5s ease;">
-        {{ session('success') }}
-    </div>
+              @foreach (['success', 'error'] as $msg)
+    @if(session($msg))
+        <div id="{{ $msg }}-alert" class="alert alert-{{ $msg == 'success' ? 'success' : 'danger' }}" style="transition: opacity 0.5s ease;">
+            {{ session($msg) }}
+        </div>
 
-    <script>
-        setTimeout(function() {
-            const alert = document.getElementById('logout-alert');
-            if (alert) {
-                alert.style.opacity = 0;
-                setTimeout(() => alert.remove(), 500); // remove after fade
-            }
-        }, 3000); // hide after 3 seconds
-    </script>
-@endif
-                    @if(Session("error"))
-                    <span class="alert alert-danger">
-                        {{ session('error') }}
-                    </span>
         <script>
-        setTimeout(function() {
-            const message = document.getElementById('successMessage');
-            if (message) {
-                message.style.transition = 'opacity 0.5s ease';
-                message.style.opacity = '0';
-                setTimeout(() => message.remove(), 500);
-            }
-        }, 3000); // vanish after 3 seconds
-    </script>
-@endif
+            setTimeout(function() {
+                const alert = document.getElementById('{{ $msg }}-alert');
+                if (alert) {
+                    alert.style.opacity = '0';
+                    setTimeout(() => alert.remove(), 500);
+                }
+            }, 3000);
+        </script>
+    @endif
+@endforeach
               <form method="post" action="{{ route('auth.login')}}">
               @csrf
                 <!-- CSRF Token -->
@@ -559,37 +546,7 @@
           <div class="card shadow-sm">
             <div class="card-body">
               <h2 class="text-2xl font-bold mb-4">Register</h2>
-
-                @if(session('success'))
-    <div id="register-alert" class="alert alert-success" style="transition: opacity 0.5s ease;">
-        {{ session('success') }}
-    </div>
-
-    <script>
-        setTimeout(function() {
-            const alert = document.getElementById('register-alert');
-            if (alert) {
-                alert.style.opacity = 0;
-                setTimeout(() => alert.remove(), 500); // remove after fade
-            }
-        }, 3000); // hide after 3 seconds
-    </script>
-@endif
-                    @if(Session("error"))
-                    <span class="alert alert-danger">
-                        {{ session('error') }}
-                    </span>
-        <script>
-        setTimeout(function() {
-            const message = document.getElementById('successMessage');
-            if (message) {
-                message.style.transition = 'opacity 0.5s ease';
-                message.style.opacity = '0';
-                setTimeout(() => message.remove(), 500);
-            }
-        }, 3000); // vanish after 3 seconds
-    </script>
-@endif
+              
               <form method="post" action="{{ route('auth.userRegister')}}">
                 @csrf
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

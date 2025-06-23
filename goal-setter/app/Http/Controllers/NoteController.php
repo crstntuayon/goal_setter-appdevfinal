@@ -20,13 +20,7 @@ class NoteController extends Controller
 
     return redirect()->back()->with('success', 'Note added successfully.');
 }
-    public function destroy(Goal $goal, Note $note)
-{
-    $note->delete();
-
-    return redirect()->back()->with('success', 'Note deleted successfully.');
-}
-
+   
 
 
     public function edit(Goal $goal, Note $note)
@@ -44,5 +38,16 @@ class NoteController extends Controller
     $note->update($validated);
 
     return redirect()->route('goals.show', $goal)->with('success', 'Note updated successfully.');
+}
+public function destroy(Goal $goal, Note $note)
+{
+    // Ensure the note belongs to the given goal (for safety)
+    if ($note->goal_id !== $goal->id) {
+        abort(403, 'Unauthorized action.');
+    }
+
+    $note->delete();
+
+    return redirect()->back()->with('success', 'Note deleted successfully.');
 }
 }
