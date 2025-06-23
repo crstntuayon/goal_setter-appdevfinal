@@ -495,7 +495,11 @@
           <div class="card shadow-sm">
             <div class="card-body">
               <h2 class="text-2xl font-bold mb-4">Login</h2>
+<<<<<<< HEAD
               @foreach (['success', 'error'] as $msg)
+=======
+             @foreach (['success', 'error'] as $msg)
+>>>>>>> 1c527392468c714171434a5e8edc6b781e2b57a8
     @if(session($msg))
         <div id="{{ $msg }}-alert" class="alert alert-{{ $msg == 'success' ? 'success' : 'danger' }}" style="transition: opacity 0.5s ease;">
             {{ session($msg) }}
@@ -512,6 +516,10 @@
         </script>
     @endif
 @endforeach
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1c527392468c714171434a5e8edc6b781e2b57a8
               <form method="post" action="{{ route('auth.login')}}">
               @csrf
                 <!-- CSRF Token -->
